@@ -1,0 +1,38 @@
+@font-face {
+    font-family: Manrope;
+    src: url(../../fonts/Manrope-VariableFont_wght.ttf);
+}
+
+.card {
+    font-family: Manrope;
+    background-color: hsl(217, 19%, 24%);
+    max-width: 430px;
+    width: 100%;
+    max-height: 260px;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+
+    .card-top {
+        height: 34%;
+        display: flex;
+        align-items: center;
+
+        .advice-nr {
+            font-size: 0.65em;
+            font-weight: 800;
+            color: hsl(150, 100%, 66%);
+            letter-spacing: 4px;
+        }
+    }
+
+    .card-main {
+        
+
+        .advice-content {
+
+        }
+    }
+
+
+}

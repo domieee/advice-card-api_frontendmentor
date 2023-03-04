@@ -1,0 +1,14 @@
+html, body, #root, .App {
+  height: 100%;
+}
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+}
