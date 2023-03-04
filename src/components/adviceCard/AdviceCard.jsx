@@ -10,21 +10,26 @@ const AdviceCard = () => {
     const [data, setData] = useState([])
 
     const fetchData = () => {
-        useEffect(() => {
-            try {
-                fetch('https://api.adviceslip.com/advice')
-                    .then(res => res.json())
-                    .then(json => {
-                        setData(json)
-                    })
-            } catch (err) {
-                console.log(err);
-            }
+        fetch('https://api.adviceslip.com/advice')
+        .then(res => res.json())
+        .then(json => {
+            setData(json)
+        })
 
-        }, [])
     }
 
-    fetchData()
+    useEffect(() => {
+        try {
+            fetch('https://api.adviceslip.com/advice')
+                .then(res => res.json())
+                .then(json => {
+                    setData(json)
+                    return json
+                })
+        } catch (err) {
+            console.log(err);
+        }
+    }, [])
 
 
 
@@ -45,10 +50,8 @@ const AdviceCard = () => {
             <section className='card-bottom'>
 
             </section>
-            <button
-                type='button'
-                onClick={fetchData}>
-                <img src={Dice} alt="" />
+            <button type='button' onClick={fetchData}>
+
             </button>
         </article>
     );

@@ -6,10 +6,11 @@
     height: 100%;
     margin: 15px;
     background-color: hsla(217, 19%, 38%, 20%);
+
+
 }
 
-@keyframes AnimateBG { 
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+
+.loader:first-child{
+    margin-top: auto;
 }
