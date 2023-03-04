@@ -3,20 +3,25 @@
     src: url(../../fonts/Manrope-VariableFont_wght.ttf);
 }
 
+.card-top, .card-main {
+    padding: 15px;
+}
+
 .card {
+    padding: 20px;
     font-family: Manrope;
     background-color: hsl(217, 19%, 24%);
-    max-width: 430px;
+    max-width: 500px;
     width: 100%;
-    max-height: 260px;
+    max-height: 305px;
     height: 100%;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
 
     .card-top {
-        height: 34%;
+        height: 20%;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
 
         .advice-nr {
             font-size: 0.65em;
@@ -27,10 +32,38 @@
     }
 
     .card-main {
+        display: flex;
+        align-items: center;
+        height: 56%;
         
 
         .advice-content {
+            font-weight: 800;
+            font-size: 1.5em;
+        }
+    }
 
+    .card-bottom {
+        display: flex;
+        justify-content: center;
+        height: 20%;
+        background-image: url('../../img/pattern-divider-desktop.svg');
+        background-repeat: no-repeat;
+        background-position: top center;
+    }
+
+    button {
+        border-radius: 100%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: hsl(150, 100%, 66%);
+        border: none;
+        img {
+            width: 20px;
+            height: 20px;
         }
     }
 

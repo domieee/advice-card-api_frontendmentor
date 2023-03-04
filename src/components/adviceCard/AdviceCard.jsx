@@ -1,24 +1,30 @@
 import { useEffect, useState } from 'react';
 import './AdviceCard.scss'
 import Loader from '../loader/Loader.jsx'
+import PatternDivDesk from '../../img/pattern-divider-desktop.svg'
+import PatternDivDeskMobile from '../../img/pattern-divider-desktop.svg'
+import Dice from '../../img/icon-dice.svg'
 
 const AdviceCard = () => {
 
     const [data, setData] = useState([])
 
+    const fetchData = () => {
+        useEffect(() => {
+            try {
+                fetch('https://api.adviceslip.com/advice')
+                    .then(res => res.json())
+                    .then(json => {
+                        setData(json)
+                    })
+            } catch (err) {
+                console.log(err);
+            }
 
-    useEffect(() => {
-        try {
-            fetch('https://api.adviceslip.com/advice')
-                .then(res => res.json())
-                .then(json => {
-                    setData(json)
-                })
-        } catch (err) {
-            console.log(err);
-        }
+        }, [])
+    }
 
-    }, [])
+    fetchData()
 
 
 
@@ -27,20 +33,23 @@ const AdviceCard = () => {
     return (
         <article className="card">
             <section className='card-top'>
-                    {data.slip == undefined
-                    ? <Loader /> 
+                {data.slip == undefined
+                    ? <Loader />
                     : <p className='advice-nr'>ADVICE #{data.slip.id}</p>}
-            </section> 
+            </section>
             <section className='card-main'>
-                <p className='advice-content'>
-
-                </p>
+                {data.slip == undefined
+                    ? <Loader />
+                    : <p className='advice-content'>"{data.slip.advice}"</p>}
             </section>
             <section className='card-bottom'>
-                <div className="stroke"></div>
 
-                <div className="stroke"></div>
             </section>
+            <button
+                type='button'
+                onClick={fetchData}>
+                <img src={Dice} alt="" />
+            </button>
         </article>
     );
 }
