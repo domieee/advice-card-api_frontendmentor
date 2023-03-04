@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 import './AdviceCard.scss'
 import Loader from '../loader/Loader.jsx'
-import PatternDivDesk from '../../img/pattern-divider-desktop.svg'
-import PatternDivDeskMobile from '../../img/pattern-divider-desktop.svg'
-import Dice from '../../img/icon-dice.svg'
 
 const AdviceCard = () => {
 
     const [data, setData] = useState([])
 
     const fetchData = () => {
-        fetch('https://api.adviceslip.com/advice')
-        .then(res => res.json())
-        .then(json => {
-            setData(json)
-        })
+        try {
+            fetch('https://api.adviceslip.com/advice')
+            .then(res => res.json())
+            .then(json => {
+                console.log(json);
+                setData(json)
+            })
+        } catch (err) {
+            console.log(err);
+        }
 
     }
 
@@ -24,16 +26,11 @@ const AdviceCard = () => {
                 .then(res => res.json())
                 .then(json => {
                     setData(json)
-                    return json
                 })
         } catch (err) {
             console.log(err);
         }
     }, [])
-
-
-
-    console.log(data);
 
     return (
         <article className="card">
@@ -50,8 +47,9 @@ const AdviceCard = () => {
             <section className='card-bottom'>
 
             </section>
-            <button type='button' onClick={fetchData}>
-
+            <button
+                type='button'
+                onClick={fetchData}>
             </button>
         </article>
     );
